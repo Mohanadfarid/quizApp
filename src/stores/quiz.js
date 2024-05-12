@@ -7,15 +7,20 @@ export const useQuizStore = defineStore("quiz", () => {
     questions: [
       {
         id: 0,
-        type: "",
+        type: "Choose",
         image: null,
-        title: "",
+        title: "question title placeholder?",
         mark: 1,
         answerKeyId:null,
         answers: [
           {
             id: 0,
-            title: "",
+            title: "answer 1 placeholder",
+            image: null,
+          },
+          {
+            id: 1,
+            title: "answer 2 placeholder",
             image: null,
           },
         ],

@@ -1,7 +1,7 @@
 <script setup>
-  import  QuizQuestionCard from "../components/QuizQuestionCard.vue";
+  import QuizCard from "@/components/QuizCard.vue";
 </script>
 
 <template>
-  <QuizQuestionCard />
+  <QuizCard />
 </template>
