@@ -1,28 +1,35 @@
-<script setup></script>
+<script setup>
+
+  import CheckBoxAnswer from "./questionAnswers/CheckBoxAnswer.vue";
+  import ImageAnswer from "./questionAnswers/ImageAnswer.vue";
+  import RadioAnswer from "./questionAnswers/RadioAnswer.vue";
+  import TrueFalseAnswer from "./questionAnswers/TrueFalseAnswer.vue";
+  import { useQuizStore } from "@/stores/quiz";
+
+  const quizStore = useQuizStore();
+  const { answer, questionId } = defineProps(["answer", "questionId"]);
+
+  const answerTypeResolver = () => {
+    const { type } = quizStore.questions[questionId];
+    switch (type) {
+      case "Choose":
+        return RadioAnswer;
+      case "Multiple Answers":
+        return CheckBoxAnswer;
+      case "True  Or False":
+        return TrueFalseAnswer;
+      default:
+        return ImageAnswer;
+    }
+  };
+</script>
 
 <template>
-  <!-- mdi-checkbox-blank-outline -->
-  <!-- mdi-circle-outline -->
-  <v-col cols="12">
-    <v-row>
-      <v-col cols="11">
-        <v-text-field
-          prepend-icon="mdi-circle-outline"
-          v-model="questionTitle"
-          hide-details="auto"
-          label="test"
-        ></v-text-field>
-      </v-col cols="2">
-      <v-col>
-        <label for="aaa"><v-icon>mdi-image-plus</v-icon></label>
-        <input id="aaa" class="file-input" type="file">
-      </v-col>
-    </v-row>
-  </v-col>
+<component :answer="answer" :questionId="questionId" :is="answerTypeResolver()"></component>
 </template>
 
-<style >
-  .file-input{
-    display:none ;
-  } 
+<style>
+  .file-input {
+    display: none;
+  }
 </style>

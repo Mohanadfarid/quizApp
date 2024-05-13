@@ -4,37 +4,37 @@ import { defineStore } from "pinia";
 export const useQuizStore = defineStore("quiz", () => {
   const quizData = ref({
     quizTitle: "",
-    questions: [
-      {
-        id: 0,
-        type: "Choose",
-        image: null,
-        title: "question title placeholder?",
-        mark: 1,
-        answerKeyId:null,
-        answers: [
-          {
-            id: 0,
-            title: "answer 1 placeholder",
-            image: null,
-          },
-          {
-            id: 1,
-            title: "answer 2 placeholder",
-            image: null,
-          },
-        ],
-      },
-    ],
   });
+
+  const questions = ref([
+    {
+      id: 0,
+      type: "Choose",
+      image: null,
+      text: "question text placeholder?",
+      mark: 1,
+      answerKeyId: null,
+      answers: [
+        {
+          id: 0,
+          text: "answer 1 placeholder",
+          image: null,
+        },
+        {
+          id: 1,
+          text: "answer 2 placeholder",
+          image: null,
+        },
+      ],
+    },
+  ]);
 
   const addQuestion = () => {};
 
   const addAnswer = () => {};
 
-  return { quizData, addQuestion, addAnswer };
+  return { quizData,questions, addQuestion, addAnswer };
 });
-
 
 // {
 //   "formData": [

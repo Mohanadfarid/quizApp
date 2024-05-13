@@ -1,14 +1,14 @@
 <template>
-  <div v-for="(question, index) in quizStore.quizData.questions" :key="index">
-    <QuizQuestionCard :questionId="question.id" />
+  <div v-for="(question, index) in quizStore.questions" :key="index">
+    <QuestionCard :questionId="question.id" />
 
   </div>
-  <button @click="console.log(quizStore.quizData.questions)">click to print the quiz data in the console</button>
+  <button @click="console.log(quizStore.questions)">click to print the quiz data in the console</button>
 </template>
 
 <script setup>
   import { useQuizStore } from "@/stores/quiz";
-  import QuizQuestionCard from "../components/question/QuizQuestionCard.vue";
+  import QuestionCard from "../components/question/QuestionCard.vue";
   const quizStore = useQuizStore();
 
 </script>

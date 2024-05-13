@@ -1,5 +1,5 @@
 <script setup>
-  import { ref } from "vue";
+
   import Question from "./Question.vue";
   import { useQuizStore } from "@/stores/quiz";
   const { questionId } = defineProps(['questionId'])
@@ -13,7 +13,7 @@
       <v-col cols="3"
         ><v-select
           class="width-25"
-          v-model="quizStore.quizData.questions[questionId].type"
+          v-model="quizStore.questions[questionId].type"
           :items="['Choose', 'Multiple Answers', 'True  Or False', 'images']"
           variant="solo-filled"
         ></v-select
@@ -21,7 +21,7 @@
     </v-row>
 
     <!-- the question iteself -->
-    <Question />
+    <Question :questionId="questionId" />
   </v-card>
 </template>
 
