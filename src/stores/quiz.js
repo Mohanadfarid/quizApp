@@ -1,33 +1,29 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 
-export const useQuizStore = defineStore("quiz", () => {
-  const quizData = ref({
-    quizTitle: "",
-  });
+const initialQuestion = {
+  id: 0,
+  type: "Choose",
+  image: null,
+  text: "question text placeholder?",
+  mark: 1,
+  answerKeyId: null,
+  answerKeyIds: null,
+  answers: [
+    {
+      id: 0,
+      text: "answer 1 placeholder",
+      image: null,
+    },
+    {
+      id: 1,
+      text: "answer 2 placeholder",
+      image: null,
+    },
+  ],
+};
 
-  const initialQuestion = {
-    id: 0,
-    type: "Choose",
-    image: null,
-    text: "question text placeholder?",
-    mark: 1,
-    answerKeyId: null,
-    answerKeyIds: null,
-    answers: [
-      {
-        id: 0,
-        text: "answer 1 placeholder",
-        image: null,
-      },
-      {
-        id: 1,
-        text: "answer 2 placeholder",
-        image: null,
-      },
-    ],
-  };
-  
+export const useQuizStore = defineStore("quiz", () => {
   const questions = ref([
     {
       id: 0,
@@ -52,6 +48,26 @@ export const useQuizStore = defineStore("quiz", () => {
     },
   ]);
 
+  const setting = ref({
+    mark: 1,
+    title: "quiz title placeholder",
+    description: "this is exam description example placeholder",
+    image: null,
+    requireEmail:true,
+    requirePassword:false,
+    password:"",
+    numberOfQuestions:0,
+    isOnce:false,
+    isAtSpecificTime:false,
+    duration:30,
+    quizTimeDetails:{
+      date:"",
+      from:"",
+      to:"",
+      hasDuration:false
+    }
+  });
+ F
   const addQuestion = () => {
     const newQuestionObj = JSON.parse(JSON.stringify(initialQuestion));
     newQuestionObj.id = questions.value.length;
@@ -64,7 +80,7 @@ export const useQuizStore = defineStore("quiz", () => {
     questions.value[questionId].answers.push(newAnswerObj);
   };
 
-  return { quizData, questions, addQuestion, addAnswer, initialQuestion };
+  return { questions, setting, addQuestion, addAnswer, initialQuestion };
 });
 
 // {
