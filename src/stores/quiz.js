@@ -67,7 +67,6 @@ export const useQuizStore = defineStore("quiz", () => {
       hasDuration:false
     }
   });
- F
   const addQuestion = () => {
     const newQuestionObj = JSON.parse(JSON.stringify(initialQuestion));
     newQuestionObj.id = questions.value.length;
