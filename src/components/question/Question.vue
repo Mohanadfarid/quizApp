@@ -1,23 +1,23 @@
 <script setup>
-
   import { useQuizStore } from "@/stores/quiz";
   import QuestionAnswersContainer from "./QuestionAnswersContainer.vue";
   const { questionId } = defineProps(["questionId"]);
 
-  const quizStore= useQuizStore()
+  const quizStore = useQuizStore();
 </script>
 
 <template>
-  <v-row>
+  <v-row class="d-flex">
     <!-- question header -->
-    <v-col cols="8">
+    <v-col>
       <v-text-field
+        variant="underlined"
         v-model="quizStore.questions[questionId].text"
         hide-details="auto"
       ></v-text-field>
     </v-col>
     <!-- img input -->
-    <v-col>
+    <v-col cols="1">
       <v-file-input
         v-model="quizStore.questions[questionId].image"
         accept="image/*"
@@ -25,7 +25,6 @@
       ></v-file-input>
     </v-col>
   </v-row>
-
   <QuestionAnswersContainer :questionId="questionId" />
 </template>
 

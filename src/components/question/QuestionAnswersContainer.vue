@@ -3,6 +3,10 @@
   import QuestionAnswer from "./QuestionAnswer.vue";
   const { questionId } = defineProps(["questionId"]);
   const quizStore = useQuizStore();
+
+  const handleAddOption = () => {
+    quizStore.addAnswer(questionId)
+  };
 </script>
 
 <template>
@@ -12,10 +16,17 @@
       v-for="answer in quizStore.questions[questionId].answers"
       :key="answer.id"
     >
-      <QuestionAnswer :questionId="questionId" :answer="answer" />
+      <QuestionAnswer
+        :questionId="questionId"
+        :answer="answer"
+      />
     </v-col>
     <v-col cols="12">
-      <v-btn variant="tonal">Add Option</v-btn>
+      <v-btn
+        variant="tonal"
+        @click="handleAddOption"
+        >Add Option</v-btn
+      >
     </v-col>
   </v-row>
 </template>

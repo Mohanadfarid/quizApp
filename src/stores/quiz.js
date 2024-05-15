@@ -6,6 +6,27 @@ export const useQuizStore = defineStore("quiz", () => {
     quizTitle: "",
   });
 
+  const initialQuestion = {
+    id: 0,
+    type: "Choose",
+    image: null,
+    text: "question text placeholder?",
+    mark: 1,
+    answerKeyId: null,
+    answerKeyIds: null,
+    answers: [
+      {
+        id: 0,
+        text: "answer 1 placeholder",
+        image: null,
+      },
+      {
+        id: 1,
+        text: "answer 2 placeholder",
+        image: null,
+      },
+    ],
+  };
   const questions = ref([
     {
       id: 0,
@@ -13,7 +34,8 @@ export const useQuizStore = defineStore("quiz", () => {
       image: null,
       text: "question text placeholder?",
       mark: 1,
-      answerKeyId: null,
+      answerKeyId: 1,
+      answerKeyIds: null,
       answers: [
         {
           id: 0,
@@ -29,11 +51,19 @@ export const useQuizStore = defineStore("quiz", () => {
     },
   ]);
 
-  const addQuestion = () => {};
+  const addQuestion = () => {
+    const newQuestionObj = JSON.parse(JSON.stringify(initialQuestion));
+    newQuestionObj.id = questions.value.length;
+    questions.value.push(newQuestionObj);
+  };
 
-  const addAnswer = () => {};
+  const addAnswer = (questionId) => {
+    const newAnswerObj = JSON.parse(JSON.stringify(initialQuestion.answers[0]));
+    newAnswerObj.id = questions.value[questionId].answers.length;
+    questions.value[questionId].answers.push(newAnswerObj);
+  };
 
-  return { quizData,questions, addQuestion, addAnswer };
+  return { quizData, questions, addQuestion, addAnswer, initialQuestion };
 });
 
 // {
