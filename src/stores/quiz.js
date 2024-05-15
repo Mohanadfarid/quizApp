@@ -27,6 +27,7 @@ export const useQuizStore = defineStore("quiz", () => {
       },
     ],
   };
+  
   const questions = ref([
     {
       id: 0,

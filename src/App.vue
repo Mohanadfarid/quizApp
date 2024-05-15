@@ -1,9 +1,9 @@
 <script setup>
-  import {RouterView } from "vue-router";
+import DefaultLayout from "@/layouts/DefaultLayout.vue"
 </script>
 
 <template>
-  <RouterView />
+  <component :is="$route.meta.layout || DefaultLayout"></component>
 </template>
 
 <style>
