@@ -26,7 +26,7 @@
     <v-row>
       <v-col
         cols="12"
-        md="6"
+        sm="6"
       >
         <v-switch
           v-model="quizStore.setting.requireEmail"
@@ -38,7 +38,7 @@
       ></v-col>
       <v-col
         cols="12"
-        md="6"
+        sm="6"
       >
         <v-switch
           v-model="quizStore.setting.requirePassword"
@@ -50,7 +50,7 @@
       </v-col>
       <v-col
         cols="12"
-        md="6"
+        sm="6"
       >
         <v-switch
           v-model="quizStore.setting.isNumberOfQuestionsLimited"
@@ -62,7 +62,7 @@
       ></v-col>
       <v-col
         cols="12"
-        md="6"
+        sm="6"
       >
         <v-switch
           v-model="quizStore.setting.isOnce"
@@ -74,7 +74,7 @@
       ></v-col>
       <v-col
         cols="12"
-        md="6"
+        sm="6"
       >
         <v-switch
           v-model="quizStore.setting.isAtSpecificTime"
@@ -86,7 +86,7 @@
       ></v-col>
       <v-col
         cols="12"
-        md="6"
+        sm="6"
       >
         <v-switch
           v-model="quizStore.setting.hasDuration"
