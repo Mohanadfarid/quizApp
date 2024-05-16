@@ -150,7 +150,7 @@
         cols="12"
         md="4"
         ><v-text-field
-          v-model="quizStore.setting.quizTimeDetails.date"
+          v-model="quizStore.setting.quizTimeDetails.from"
           hide-details="auto"
           variant="outlined"
           type="number"
@@ -161,7 +161,7 @@
         cols="12"
         md="4"
         ><v-text-field
-          v-model="quizStore.setting.quizTimeDetails.date"
+          v-model="quizStore.setting.quizTimeDetails.to"
           hide-details="auto"
           variant="outlined"
           type="number"
