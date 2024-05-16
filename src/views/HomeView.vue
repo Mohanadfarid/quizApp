@@ -1,7 +1,3 @@
-<script setup>
-  import QuizCard from "@/components/QuizCard.vue";
-</script>
+<script setup></script>
 
-<template>
-  <QuizCard />
-</template>
+<template>this is the home page</template>

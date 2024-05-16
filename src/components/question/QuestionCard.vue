@@ -7,7 +7,7 @@
 <template>
   <v-card
     elevation="8"
-    class="my-10 pa-8"
+    class="mt-10 pa-8"
   >
     <!-- select question type -->
     <v-row>
