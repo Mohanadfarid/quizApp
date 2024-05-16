@@ -53,19 +53,21 @@ export const useQuizStore = defineStore("quiz", () => {
     title: "quiz title placeholder",
     description: "this is exam description example placeholder",
     image: null,
-    requireEmail:true,
-    requirePassword:false,
-    password:"",
-    numberOfQuestions:0,
-    isOnce:false,
-    isAtSpecificTime:false,
-    duration:30,
-    quizTimeDetails:{
-      date:"",
-      from:"",
-      to:"",
-      hasDuration:false
-    }
+    requireEmail: true,
+    requirePassword: false,
+    hasDuration: false,
+    password: "",
+    isNumberOfQuestionsLimited: false,
+    numberOfQuestionsLimit: null,
+    isOnce: false,
+    isAtSpecificTime: false,
+    duration: null,
+    quizTimeDetails: {
+      date: "",
+      from: "",
+      to: "",
+      hasDuration: false,
+    },
   });
   const addQuestion = () => {
     const newQuestionObj = JSON.parse(JSON.stringify(initialQuestion));
