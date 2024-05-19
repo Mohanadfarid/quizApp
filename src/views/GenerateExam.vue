@@ -1,9 +1,9 @@
 <template>
-  <QuizCard />
+  <QuizGeneratorCard />
 </template>
 
 <script setup>
-  import QuizCard from "@/components/QuizCard.vue";
+  import QuizGeneratorCard from "@/components/QuizGeneratorCard.vue";
 </script>
 
 <style lang="scss" scoped></style>

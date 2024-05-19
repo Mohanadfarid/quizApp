@@ -9,17 +9,15 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
-    },
-    {
-      path: "/myExams",
-      name: "myExams",
-
-      component: () => import("@/views/MyExams.vue"),
-    },
+    }, 
     {
       path: "/:id/examTakers",
       name: "examTakers",
       component: () => import("@/views/ExamTakers.vue"),
+      meta: {
+        title: "Exam Takers",
+        requireAuth: true,
+      },
     },
     {
       path: "/generateExam",

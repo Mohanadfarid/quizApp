@@ -1,76 +1,48 @@
-<template>
-  <v-row class="d-flex justify-center">
-    <v-col
-      cols="11"
-      md="8"
-      xl="6"
-    >
-      <v-card
-        elevation="3"
-        class="d-flex flex-column align-center bg-grey-lighten-5 mt-5 pa-4"
-      >
-        <!-- quiz header -->
-
-        <v-card-title
-          class="d-flex justify-space-between align-center my-5"
-          style="width: 100%"
-          ><h2>
-            <v-btn
-              class="bg-success mr-4"
-              icon="mdi-cog"
-              @click="isSettingOpen = true"
-            ></v-btn
-            >{{ quizStore.setting.title }}
-          </h2>
-          <v-btn color="success"
-            >total : {{ quizStore.setting.mark }}
-          </v-btn></v-card-title
-        >
-
-        <!-- settings component  -->
-        <v-dialog
-          max-width="600"
-          v-model="isSettingOpen"
-          width="auto"
-        >
-          <SettingsCard @closeModal="isSettingOpen = false" />
-        </v-dialog>
-
-        <v-col
-          v-for="(question, index) in quizStore.questions"
-          :key="question.id"
-        >
-          <QuestionCard :questionId="question.id" />
-        </v-col>
-        <v-btn
-          class="my-2"
-          @click="quizStore.addQuestion()"
-          ><v-icon>mdi-plus</v-icon></v-btn
-        >
-
-        <v-btn
-          @click="
-            console.log({
-              questions: quizStore.questions,
-              ...quizStore.setting,
-            })
-          "
-        >
-          click to print the quiz data in the console
-        </v-btn>
-      </v-card>
-    </v-col>
-  </v-row>
-</template>
-
 <script setup>
-  import { useQuizStore } from "@/stores/quiz";
-  import QuestionCard from "../components/question/QuestionCard.vue";
-  import SettingsCard from "./SettingsCard.vue";
-  import { ref } from "vue";
-  const quizStore = useQuizStore();
+  import { computed } from "vue";
+  const { quizData } = defineProps(["quizData"]);
 
-  const isSettingOpen = ref(false);
+  const imgSrc = computed(() => {
+    if (quizData.image === null) {
+      return "https://placehold.jp/150x150.png";
+    } else {
+      return quizData.image;
+    }
+  });
 </script>
+
+<template>
+  <v-card
+    elevation="5"
+    class="mx-auto mt-10"
+
+  >
+    <v-img
+      class="align-end text-white"
+      height="200"
+      :src="imgSrc"
+      cover
+    >
+      <v-card-title>{{ quizData.name }}</v-card-title>
+    </v-img>
+
+    <v-card-subtitle class="pt-4">
+      {{ quizData.degree }} points</v-card-subtitle
+    >
+
+    <v-card-text class="text-center">
+      <div>{{ quizData.desc }}</div>
+    </v-card-text>
+
+    <v-card-actions class="d-flex justify-center">
+      <router-link :to="{ path: `/${quizData.id}/examTakers` }">
+        <v-btn
+          color="success"
+          text="view Exam takers"
+        ></v-btn
+      ></router-link>
+    </v-card-actions>
+  </v-card>
+</template>
 
 <style lang="scss" scoped></style>
