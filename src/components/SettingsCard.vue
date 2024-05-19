@@ -138,14 +138,15 @@
       <v-col
         cols="12"
         md="4"
-        ><v-text-field
+      >
+        <v-text-field
           v-model="quizStore.setting.quizTimeDetails.date"
           hide-details="auto"
           variant="outlined"
-          type="number"
+          type="date"
           label="date"
-        ></v-text-field
-      ></v-col>
+        ></v-text-field>
+      </v-col>
       <v-col
         cols="12"
         md="4"
@@ -153,7 +154,7 @@
           v-model="quizStore.setting.quizTimeDetails.from"
           hide-details="auto"
           variant="outlined"
-          type="number"
+          type="time"
           label="from"
         ></v-text-field
       ></v-col>
@@ -164,7 +165,7 @@
           v-model="quizStore.setting.quizTimeDetails.to"
           hide-details="auto"
           variant="outlined"
-          type="number"
+          type="time"
           label="to"
         ></v-text-field
       ></v-col>

@@ -66,7 +66,6 @@ export const useQuizStore = defineStore("quiz", () => {
       date: "",
       from: "",
       to: "",
-      hasDuration: false,
     },
   });
   const addQuestion = () => {
