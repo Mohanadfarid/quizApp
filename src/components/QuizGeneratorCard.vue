@@ -23,7 +23,7 @@
             >{{ quizStore.setting.title }}
           </h2>
           <v-btn color="success"
-            >total : {{ quizStore.setting.mark }}
+            >total : {{ quizStore.GetTotalMarks }}
           </v-btn></v-card-title
         >
 

@@ -10,10 +10,13 @@
       : false;
   });
 
-  const classes = {
-    "bg-green-lighten-5": IsAnswerKey.value,
-    "rounded-lg": IsAnswerKey.value,
-  };
+  const classes = computed(() => {
+    return {
+      "bg-green-lighten-5": IsAnswerKey.value,
+      "text-h4": IsAnswerKey.value,
+      "rounded-lg": IsAnswerKey.value,
+    };
+  });
 </script>
 
 <template>

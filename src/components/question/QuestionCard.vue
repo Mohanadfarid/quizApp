@@ -22,6 +22,23 @@
           variant="solo-filled"
         ></v-select
       ></v-col>
+      <v-col
+        ><v-select
+          class="width-25"
+          :items="quizStore.GetAnswersId(questionId)"
+          v-model="quizStore.questions[questionId].answerKeyId"
+          variant="solo-filled"
+        >
+        </v-select>
+      </v-col>
+      <v-col>
+        <v-text-field
+          label="mark"
+          type="number"
+          v-model="quizStore.questions[questionId].mark"
+        >
+        </v-text-field>
+      </v-col>
     </v-row>
 
     <!-- the question iteself -->

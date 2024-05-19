@@ -15,20 +15,13 @@
   <v-card
     elevation="5"
     class="mx-auto mt-10"
-
   >
-    <v-img
-      class="align-end text-white"
-      height="200"
-      :src="imgSrc"
-      cover
-    >
+    <div class="d-flex justify-space-between">
       <v-card-title>{{ quizData.name }}</v-card-title>
-    </v-img>
-
-    <v-card-subtitle class="pt-4">
-      {{ quizData.degree }} points</v-card-subtitle
-    >
+      <v-card-subtitle class="pt-4">
+        {{ quizData.degree }} points</v-card-subtitle
+      >
+    </div>
 
     <v-card-text class="text-center">
       <div>{{ quizData.desc }}</div>

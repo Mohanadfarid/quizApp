@@ -24,29 +24,7 @@ const initialQuestion = {
 };
 
 export const useQuizStore = defineStore("quiz", () => {
-  const questions = ref([
-    {
-      id: 0,
-      type: "Choose",
-      image: null,
-      text: "question text placeholder?",
-      mark: 1,
-      answerKeyId: 1,
-      answerKeyIds: null,
-      answers: [
-        {
-          id: 0,
-          text: "answer 1 placeholder",
-          image: null,
-        },
-        {
-          id: 1,
-          text: "answer 2 placeholder",
-          image: null,
-        },
-      ],
-    },
-  ]);
+  const questions = ref([initialQuestion]);
 
   const setting = ref({
     mark: 1,
@@ -68,6 +46,19 @@ export const useQuizStore = defineStore("quiz", () => {
       to: "",
     },
   });
+
+  const GetTotalMarks = computed(() => {
+    let sum = 0;
+    questions.value.map((question) => {
+      sum += parseInt(question.mark,10);
+    });
+    return sum;
+  });
+
+  const GetAnswersId = (questionId) => {
+    return questions.value[questionId].answers.map((answer) => answer.id);
+  };
+
   const addQuestion = () => {
     const newQuestionObj = JSON.parse(JSON.stringify(initialQuestion));
     newQuestionObj.id = questions.value.length;
@@ -80,7 +71,15 @@ export const useQuizStore = defineStore("quiz", () => {
     questions.value[questionId].answers.push(newAnswerObj);
   };
 
-  return { questions, setting, addQuestion, addAnswer, initialQuestion };
+  return {
+    questions,
+    setting,
+    addQuestion,
+    addAnswer,
+    initialQuestion,
+    GetTotalMarks,
+    GetAnswersId,
+  };
 });
 
 // {
